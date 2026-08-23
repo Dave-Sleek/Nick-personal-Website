@@ -93,7 +93,7 @@ export default function App() {
   };
 
   return (
-    <div className="selection:bg-[#f5f5f5] selection:text-[#0a0a0a]">
+    <div>
       <script type="application/ld+json">
         {JSON.stringify(personSchema)}
       </script>

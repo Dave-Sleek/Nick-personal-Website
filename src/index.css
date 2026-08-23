@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] text-[#f5f5f5] antialiased;
+  }
+
+  /* Ensure selection contrast is high */
+  ::selection {
+    @apply bg-[#f5f5f5] text-[#0a0a0a];
+  }
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
