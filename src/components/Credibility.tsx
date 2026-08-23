@@ -15,7 +15,7 @@ export default function Credibility() {
           <div className="md:col-span-4">
             <div>
               <Reveal>
-                <span className="block text-xs font-bold uppercase tracking-[0.5em] text-[#f5f5f5]/30 mb-8">
+                <span className="block text-xs font-bold uppercase tracking-[0.5em] opacity-30 mb-8">
                   Professionalism
                 </span>
               </Reveal>
@@ -25,7 +25,7 @@ export default function Credibility() {
                 </h2>
               </Reveal>
               <Reveal delay={0.6}>
-                <p className="text-[#f5f5f5]/40 leading-relaxed font-light">
+                <p className="opacity-40 leading-relaxed font-light">
                   Building a track record of innovation and strategic execution across diverse technology landscapes.
                 </p>
               </Reveal>
@@ -41,9 +41,9 @@ export default function Credibility() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group grid grid-cols-12 items-center py-10 border-t border-[#f5f5f5]/5 hover:bg-[#f5f5f5]/[0.02] transition-colors px-4"
+                  className="group grid grid-cols-12 items-center py-10 border-t border-[var(--border-muted)] hover:bg-[var(--accent-alpha)] transition-colors px-4"
                 >
-                  <div className="col-span-3 md:col-span-2 text-xs font-bold uppercase tracking-widest text-[#f5f5f5]/30 group-hover:text-[#f5f5f5] transition-colors">
+                  <div className="col-span-3 md:col-span-2 text-xs font-bold uppercase tracking-widest opacity-30 group-hover:opacity-100 transition-opacity">
                     {item.year}
                   </div>
                   <div className="col-span-9 md:col-span-6">
@@ -51,12 +51,12 @@ export default function Credibility() {
                       {item.role}
                     </h3>
                   </div>
-                  <div className="col-span-12 md:col-span-4 mt-2 md:mt-0 md:text-right text-[#f5f5f5]/50 font-playfair italic md:text-xl">
+                  <div className="col-span-12 md:col-span-4 mt-2 md:mt-0 md:text-right opacity-50 font-playfair italic md:text-xl">
                     {item.company}
                   </div>
                 </motion.div>
               ))}
-              <div className="h-[1px] w-full bg-[#f5f5f5]/5" />
+              <div className="h-[1px] w-full bg-[var(--border-muted)]" />
             </div>
           </div>
         </div>

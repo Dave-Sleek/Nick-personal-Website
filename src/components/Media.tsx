@@ -33,12 +33,12 @@ const MEDIA_ITEMS = [
 
 export default function Media() {
   return (
-    <section id="media" className="py-24 md:py-40 bg-[#0a0a0a]">
+    <section id="media" className="py-24 md:py-40 bg-[var(--bg-primary)]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-20">
           <div>
             <Reveal>
-              <span className="block text-xs font-bold uppercase tracking-[0.5em] text-[#f5f5f5]/30 mb-6">
+              <span className="block text-xs font-bold uppercase tracking-[0.5em] opacity-30 mb-6">
                 Publications & Press
               </span>
             </Reveal>
@@ -56,13 +56,13 @@ export default function Media() {
               <StaggerItem key={index}>
                 <a
                   href={item.link}
-                  className="group block p-10 bg-[#0f0f0f] border border-[#f5f5f5]/5 rounded-3xl hover:bg-[#1a1a1a] transition-all duration-500"
+                  className="group block p-10 bg-[var(--bg-secondary)] border border-[var(--border-muted)] rounded-3xl hover:bg-[var(--accent-alpha)] transition-all duration-500"
                 >
                   <div className="flex justify-between items-start mb-12">
-                    <div className="p-3 bg-[#f5f5f5]/5 rounded-xl text-[#f5f5f5]/40 group-hover:text-[#f5f5f5] transition-colors">
+                    <div className="p-3 bg-[var(--accent-alpha)] rounded-xl opacity-40 group-hover:opacity-100 transition-opacity">
                       {item.icon}
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5f5f5]/20">
+                    <span className="text-[10px] font-bold uppercase tracking-widest opacity-20">
                       {item.date}
                     </span>
                   </div>
@@ -71,7 +71,7 @@ export default function Media() {
                     {item.title}
                   </h3>
                   
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#f5f5f5]/30 group-hover:text-[#f5f5f5] transition-colors">
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] opacity-30 group-hover:opacity-100 transition-opacity">
                     View Resource <ArrowRightIcon />
                   </div>
                 </a>

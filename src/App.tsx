@@ -18,7 +18,7 @@ import Credibility from './components/Credibility';
 import ContactCTA, { Footer } from './components/Footer';
 
 // A subtle custom cursor for desktop
-const CustomCursor = () => {
+const CustomCursor = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -46,22 +46,24 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#f5f5f5]/30 pointer-events-none z-[9999] hidden md:flex items-center justify-center"
+      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[var(--text-primary)] opacity-30 pointer-events-none z-[9999] hidden md:flex items-center justify-center"
       animate={{
         x: position.x - 16,
         y: position.y - 16,
         scale: isHovering ? 2 : 1,
-        backgroundColor: isHovering ? "rgba(245, 245, 245, 0.1)" : "rgba(245, 245, 245, 0)",
+        backgroundColor: isHovering ? "var(--accent-alpha)" : "transparent",
       }}
       transition={{ type: "spring", damping: 20, stiffness: 250, mass: 0.5 }}
     >
-      <div className="w-1 h-1 bg-[#f5f5f5] rounded-full" />
+      <div className="w-1 h-1 bg-[var(--text-primary)] rounded-full" />
     </motion.div>
   );
 };
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -70,12 +72,32 @@ export default function App() {
   });
 
   useEffect(() => {
+    // Check local storage for theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      setIsDarkMode(false);
+    } else {
+      setIsDarkMode(true);
+    }
+
     // Simulate loading time for the preloader
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   const personSchema = {
     "@context": "https://schema.org",
@@ -99,17 +121,17 @@ export default function App() {
       </script>
 
       <Preloader isLoading={isLoading} />
-      <CustomCursor />
+      <CustomCursor isDarkMode={isDarkMode} />
       
       {/* Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-[2px] bg-[#f5f5f5] z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-[var(--text-primary)] z-[60] origin-left"
         style={{ scaleX }}
       />
 
-      <Navbar />
+      <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       
-      <main>
+      <main className="relative z-10">
         <Hero />
         <VideoSection />
         <About />
@@ -120,7 +142,9 @@ export default function App() {
         <ContactCTA />
       </main>
 
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 }

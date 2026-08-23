@@ -15,7 +15,7 @@ export default function About() {
           <div className="md:col-span-5">
             <div>
               <Reveal>
-                <span className="block text-xs font-bold uppercase tracking-[0.5em] text-[#f5f5f5]/30 mb-8">
+                <span className="block text-xs font-bold uppercase tracking-[0.5em] opacity-30 mb-8">
                   The Narrative
                 </span>
               </Reveal>
@@ -27,9 +27,9 @@ export default function About() {
               </Reveal>
               
               <div className="space-y-6">
-                <div className="h-px w-full bg-gradient-to-r from-[#f5f5f5]/20 to-transparent" />
+                <div className="h-px w-full bg-gradient-to-r from-[var(--text-primary)]/20 to-transparent" />
                 <Reveal delay={0.6}>
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#f5f5f5]/40 font-bold">
+                  <p className="text-xs uppercase tracking-[0.3em] opacity-40 font-bold">
                     Entrepreneur & Strategist
                   </p>
                 </Reveal>
@@ -44,25 +44,25 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h3 className="text-3xl md:text-5xl font-light leading-tight tracking-tight mb-12 text-[#f5f5f5]">
+              <h3 className="text-3xl md:text-5xl font-light leading-tight tracking-tight mb-12">
                 {SITE_DATA.about.statement}
               </h3>
               
               <div className="flex flex-col md:flex-row gap-12">
-                <p className="text-lg md:text-xl text-[#f5f5f5]/50 leading-relaxed font-light">
+                <p className="text-lg md:text-xl opacity-50 leading-relaxed font-light">
                   {SITE_DATA.about.details}
                 </p>
               </div>
 
               {/* Decorative Stats Grid */}
-              <div className="grid grid-cols-2 gap-8 mt-20 pt-20 border-t border-[#f5f5f5]/5">
+              <div className="grid grid-cols-2 gap-8 mt-20 pt-20 border-t border-[var(--border-muted)]">
                 <div>
                   <span className="block text-3xl font-medium mb-2 tracking-tighter">10+</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5f5f5]/30">Years in Innovation</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">Years in Innovation</span>
                 </div>
                 <div>
                   <span className="block text-3xl font-medium mb-2 tracking-tighter">∞</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5f5f5]/30">Commitment to Growth</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">Commitment to Growth</span>
                 </div>
               </div>
             </motion.div>

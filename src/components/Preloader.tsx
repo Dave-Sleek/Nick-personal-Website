@@ -20,7 +20,7 @@ export default function Preloader({ isLoading }: PreloaderProps) {
             opacity: 0,
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }
           }}
-          className="fixed inset-0 z-[100] bg-[#0a0a0a] flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[100] bg-[var(--bg-primary)] flex items-center justify-center overflow-hidden"
         >
           <div className="relative flex flex-col items-center">
             {/* Animated Brand Name */}
@@ -29,14 +29,14 @@ export default function Preloader({ isLoading }: PreloaderProps) {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                className="block text-2xl font-bold tracking-tighter uppercase"
+                className="block text-2xl font-bold tracking-tighter uppercase text-[var(--text-primary)]"
               >
                 {SITE_DATA.name}
               </motion.span>
             </div>
 
             {/* Progress Track */}
-            <div className="w-48 h-[1px] bg-[#f5f5f5]/10 relative overflow-hidden">
+            <div className="w-48 h-[1px] bg-[var(--border-muted)] relative overflow-hidden">
               <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: "0%" }}
@@ -46,7 +46,7 @@ export default function Preloader({ isLoading }: PreloaderProps) {
                   repeat: Infinity,
                   repeatType: "loop"
                 }}
-                className="absolute inset-0 bg-[#f5f5f5]"
+                className="absolute inset-0 bg-[var(--text-primary)]"
               />
             </div>
 
@@ -55,14 +55,14 @@ export default function Preloader({ isLoading }: PreloaderProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="mt-6 text-[10px] font-bold uppercase tracking-[0.6em] text-[#f5f5f5]/20"
+              className="mt-6 text-[10px] font-bold uppercase tracking-[0.6em] opacity-20 text-[var(--text-primary)]"
             >
               Initializing Experience
             </motion.span>
           </div>
 
           {/* Background Decorative Text */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] select-none pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] select-none pointer-events-none text-[var(--text-primary)]">
             <motion.span 
               initial={{ scale: 0.8 }}
               animate={{ scale: 1.2 }}
